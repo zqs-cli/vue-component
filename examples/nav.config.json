@@ -1,0 +1,73 @@
+{
+    "开发指南": [
+      {
+        "name": "giud",
+        "path": "/giud",
+        "desc": "介绍"
+      },
+      {
+        "name": "install",
+        "path": "/install",
+        "desc": "安装"
+      },
+      {
+        "name": "start",
+        "path": "/start",
+        "desc": "快速开始"
+      },
+      {
+        "name": "index",
+        "path": "/",
+        "type": "pages"
+      },
+      {
+        "name": "logs",
+        "path": "/logs",
+        "desc": "更新日志"
+      }
+    ],
+    "组件": [
+      {
+        "desc": "业务组件",
+        "path": "/component",
+        "items": [
+          {
+            "desc": "basic-form",
+            "name": "BasicForm",
+            "path": "/BasicForm"
+          },
+          {
+            "desc": "basic-dialog",
+            "name": "BasicDialog",
+            "path": "/BasicDialog"
+          },
+          {
+            "desc": "search-box",
+            "name": "SearchBox",
+            "path": "/SearchBox"
+          },
+          {
+            "desc": "login-bg",
+            "name": "LoginBg",
+            "path": "/LoginBg"
+          },
+          {
+            "desc": "login",
+            "name": "Login",
+            "path": "/Login"
+          },
+          {
+            "desc": "header",
+            "name": "Header",
+            "path": "/Header"
+          },
+          {
+            "desc": "menus",
+            "name": "Menus",
+            "path": "/Menus"
+          }
+        ]
+      }
+    ]
+  }
+  
