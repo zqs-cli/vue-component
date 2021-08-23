@@ -3,3 +3,5 @@ node_modules
 /dist
 lib
 es
+.git_back
+.git_junc
