@@ -9,8 +9,12 @@
 ### 使用示例
 :::demo
 ```html
-<a-button @click="showDialog">显示基础弹窗</a-button>
-<basic-dialog :config="config" @ok="ok" />
+<template>
+    <div>
+        <a-button @click="showDialog">显示基础弹窗</a-button>
+        <basic-dialog :config="config" @ok="ok" />
+    </div>
+</template>
 <script>
 const formConfig = [{
                 type: 'Input',

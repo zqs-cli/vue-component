@@ -9,11 +9,13 @@
 ### 使用示例
 :::demo
 ```html
-<Menus 
-    mode="inline" 
-    theme="dark" 
-    @click="meunClick"
-     />
+<template>
+    <Menus 
+      mode="inline" 
+      theme="dark" 
+      @click="meunClick"
+    />
+<template>
 <script>
 export default {
   data() {

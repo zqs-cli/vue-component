@@ -17,50 +17,42 @@
 </template>
 
 <script>
-/* eslint-disable */
-  import Vue from 'vue'
-  import hljs from 'highlight.js';
-  import { stripStyle} from '../util'
-  export default {
-    name: 'demo-block',
-    data() {
-      return {
-        isExpand: false
-      };
+import { stripStyle } from '../util'
+export default {
+  name: 'demo-block',
+  data () {
+    return {
+      isExpand: false
+    };
+  },
+  mounted () {
+    this.init()
+  },
+  methods: {
+    toggle () {
+      this.isExpand = !this.isExpand;
     },
-    mounted(){
-      this.$nextTick(() => {
-        const blocks = document.querySelectorAll('pre code:not(.hljs)');
-        Array.prototype.forEach.call(blocks, hljs.highlightBlock);
-      });
-      // this.init()
-    },
-    methods: {
-      toggle() {
-        this.isExpand = !this.isExpand;
-      },
-      init () {
-        const highlight = this.$slots.highlight;
-        if (highlight && highlight[0]) {
-          let code  = '';
-          let cur = highlight[0];
-          if (cur.tag === 'pre' && (cur.children && cur.children[0])) {
-            cur = cur.children[0];
-            if (cur.tag === 'code') {
-              code = cur.children[0].text
-            }
+    init () {
+      const { highlight } = this.$slots;
+      if (highlight && highlight[0]) {
+        let code = '';
+        let cur = highlight[0];
+        if (cur.tag === 'pre' && (cur.children && cur.children[0])) {
+          cur = cur.children[0];
+          if (cur.tag === 'code') {
+            code = cur.children[0].text
           }
-          if (code) {
-            stripStyle(code);
-          }
-          console.log(code)
+        }
+        if (code) {
+          stripStyle(code);
         }
       }
-    },
-  };
+    }
+  },
+};
 </script>
 
-<style lang="less" scoped>
+<style lang="less" >
 .demo-block {
     border: solid 1px #ebebeb;
     border-radius: 3px;
@@ -122,7 +114,7 @@
 
     .highlight {
       pre {
-        margin: 0;
+        margin: 0 !important;
       }
 
       code.hljs {
@@ -150,7 +142,7 @@
       color: #d3dce6;
       cursor: pointer;
       position: relative;
-    
+
       &.is-fixed {
         position: fixed;
         bottom: 0;
@@ -185,7 +177,7 @@
         opacity: 0;
         transform: translateX(10px);
       }
-      
+
       .control-button {
         line-height: 26px;
         position: absolute;
@@ -195,9 +187,6 @@
         padding-left: 5px;
         padding-right: 25px;
       }
-    }
-    /deep/ .z-row{
-      margin-bottom: 20px;
     }
   }
 </style>

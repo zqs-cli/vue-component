@@ -4,19 +4,18 @@
       <a-button v-if="fItem.vType === 'Button'" type="primary" @click="operate(fItem)">
         {{ configMaps['Button']['text'] }}
       </a-button>
-      <a-input-search
+      <a-input
         v-if="fItem.vType === 'Input'"
         :placeholder="configMaps['Input']['placeholder']"
         v-model="query[configMaps['Input']['vModel']]"
         @search="operate(fItem)"
-        enterButton />
+        />
       <a-range-picker
         v-if="fItem.vType === 'DatePicker'"
         format="YYYY-MM-DD HH:mm"
         v-model="query[configMaps['DatePicker']['vModel']]"
         :default-value="configMaps['DatePicker']['defaultValue']"
         @change="operate(fItem)">
-        <a-icon slot="suffixIcon" type="smile" />
       </a-range-picker>
     </a-col>
     <slot />

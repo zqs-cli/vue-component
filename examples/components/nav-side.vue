@@ -18,15 +18,15 @@
 
 <script>
 import navConf from '../nav.config.json'
-
-export default {
+import { defineComponent } from 'vue';
+export default defineComponent({
   data () {
     return {
       data: navConf
     }
   }
 
-}
+})
 </script>
 <style lang="less" scoped>
 .side-nav {

@@ -2,6 +2,7 @@ packages
 dist
 node_modules
 examples/docs
+examples/doc
 zen-cli
 es
 lib

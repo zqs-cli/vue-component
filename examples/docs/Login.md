@@ -9,7 +9,9 @@
 ### 使用示例
 :::demo
 ```html
-<login />
+<template>
+  <login />
+</template>
 <script>
 export default {
   data() {

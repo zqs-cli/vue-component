@@ -9,12 +9,14 @@
 ### 使用示例
 :::demo
 ```html
-<search-box @change="searchBoxChange" :config="config" />
+<template>
+  <search-box @change="searchBoxChange" :config="config" />
+</template>
 <script>
 const ButtonConfig = {
   vType: 'Button',
   span: 3,
-  text: 'hello, btn'
+  text: 'search'
 }
 
 const InputConfig = {

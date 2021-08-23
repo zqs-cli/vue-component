@@ -9,7 +9,9 @@
 ### 使用示例
 :::demo
 ```html
-<login-bg />
+<template>
+  <login-bg />
+<template>
 <script>
 export default {
   data() {

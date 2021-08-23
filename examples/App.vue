@@ -7,15 +7,18 @@
   </div>
 </template>
 <script lang="ts">
-
-import { Component, Vue } from 'vue-property-decorator'
+import { defineComponent } from 'vue';
 import sideNav from './components/nav-side.vue'
-@Component({
+export default defineComponent({
+  name: 'App',
   components: {
     sideNav
-  }
-})
-export default class App extends Vue {}
+  },
+  // mounted () {
+  //   console.log(this.$nextTick(callback))
+  // }
+});
+
 </script>
 <style lang="less" scoped>
 @import "./assets/style/index";

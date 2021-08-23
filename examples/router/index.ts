@@ -1,11 +1,10 @@
-import Vue from 'vue'
-import VueRouter, { RouteConfig } from 'vue-router'
+import { App } from 'vue';
+import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 import hljs from 'highlight.js'
 import navConf from '@/nav.config.json'
+const { nextTick } = require('vue')
 
-Vue.use(VueRouter)
-
-let docRoutes: Array<RouteConfig> = []
+let docRoutes: Array<RouteRecordRaw> = []
 
 Object.keys(navConf).forEach((header) => {
   docRoutes = docRoutes.concat(navConf[header])
@@ -18,30 +17,33 @@ const addComponent = (router: any = []) => {
       docRoutes = docRoutes.concat(route.items)
     } else {
       if (route.type === 'pages') {
-        route.component = (r: any) => require.ensure([], () =>
-          r(require(`../views/${route.name}.vue`)))
+        route.component = () => import(`../views/${route.name}.vue`)
         return
       }
-      route.component = (r: any) => require.ensure([], () => {
-        // console.log('wewe', require(`../docs/${route.name}.md`))
-        return r(require(`../docs/${route.name}.md`))
-      })
+      route.component = () => import(`../docs/${route.name}.md`)
     }
   })
 }
 addComponent(docRoutes)
 
-const router = new VueRouter({
-  // mode: 'history',
-  base: process.env.BASE_URL,
+const router = createRouter({
+  history: createWebHistory(),
   routes: docRoutes
 })
 
-router.afterEach(() => {
-  Vue.nextTick(() => {
-    const blocks = document.querySelectorAll('pre code:not(.hljs)')
-    Array.prototype.forEach.call(blocks, hljs.highlightBlock)
+const withAfterRouter = async (router: any = []) => {
+  router.afterEach(() => {
+    nextTick(() => {
+      const blocks = document.querySelectorAll('pre code:not(.hljs)')
+      Array.prototype.forEach.call(blocks, hljs.highlightBlock)
+    })
   })
-})
+}
+
+export const setupRouter = (app: App<Element>) => {
+  withAfterRouter(router);
+  app.use(router);
+  return router
+}
 
 export default router

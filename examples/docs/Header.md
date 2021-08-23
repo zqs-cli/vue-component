@@ -9,7 +9,9 @@
 ### 使用示例
 :::demo
 ```html
-<Header @operate="operate" />
+<template>
+  <Header @operate="operate" />
+</template>
 <script>
 export default {
   data() {
