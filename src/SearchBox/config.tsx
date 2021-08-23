@@ -1,3 +1,4 @@
+import { defineComponent } from 'vue';
 const ButtonConfig = {
   vType: 'Button',
   span: 3,
@@ -17,6 +18,21 @@ const DatePickerConfig = {
   defaultValue: [],
   vModel: 'date'
 }
+
+export const Custom = defineComponent({
+  data () {
+    return {
+      options: []
+    }
+  },
+  async beforeCreate () {
+    const res = await Promise.resolve([{ label: '123', value: '222' }])
+    this.options = res
+  },
+  render () {
+    return (<a-select options={ this.options }></a-select>)
+  }
+});
 
 export default [
   InputConfig,

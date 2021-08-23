@@ -25,8 +25,12 @@
   </a-row>
 </template>
 <script>
+import { Custom } from './config'
 export default {
   name: 'SearchBox',
+  components: {
+    custom: Custom
+  },
   props: {
     config: {
       type: Array,
@@ -53,7 +57,6 @@ export default {
       })
       return maps
     }
-
   },
   methods: {
     operate (action) {
