@@ -2,12 +2,12 @@
 import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
-import commonComponents from './components'
+import useComponents from './components'
+import usePlugins from './plugins'
 import './assets/style/index.less'
-import './plugins'
 
-Vue.use(commonComponents)
-
+useComponents(Vue)
+usePlugins(Vue)
 Vue.config.productionTip = false
 // console.log(Vue, new Vue())
 new Vue({

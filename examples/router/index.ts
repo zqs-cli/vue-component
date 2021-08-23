@@ -23,7 +23,6 @@ const addComponent = (router: any = []) => {
         return
       }
       route.component = (r: any) => require.ensure([], () => {
-        // console.log('wewe', require(`../docs/${route.name}.md`))
         return r(require(`../docs/${route.name}.md`))
       })
     }
